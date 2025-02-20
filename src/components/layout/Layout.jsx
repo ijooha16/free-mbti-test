@@ -8,7 +8,7 @@ const Layout = () => {
     <>
       <Header />
       <Navi />
-      <div className="mt-[180px] w-screen flex flex-col gap-[80px] justify-center items-center">
+      <div className="mt-[280px] w-screen flex flex-col gap-[80px] justify-center items-center">
         <Outlet />
         <Footer />
       </div>
