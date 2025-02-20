@@ -1,12 +1,11 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Layout from "./components/layout/Layout";
-import Login from "./pages/Login";
-import Profile from "./pages/Profile";
-import ResultPage from "./pages/ResultPage";
-import Signup from "./pages/Signup";
-import TestPage from "./pages/TestPage";
+import Home from "./pages/Home.jsx";
+import Layout from "./components/layout/Layout.jsx";
+import Login from "./pages/Login.jsx";
+import Profile from "./pages/Profile.jsx";
+import ResultPage from "./pages/ResultPage.jsx";
+import Signup from "./pages/Signup.jsx";
+import TestPage from "./pages/TestPage.jsx";
 
 function App() {
   return (
