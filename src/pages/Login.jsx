@@ -4,6 +4,7 @@ import SubmitBtn from "../components/SubmitBtn";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "../api/auth";
 import useAuthStore from "../zustand/store/useAuthStore";
+import { queryClient } from "../api/client";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,18 +15,19 @@ const Login = () => {
     onSuccess: (userData) => {
       setUser(userData);
       alert("로그인 성공!");
+      console.log("로그인 성공");
       navigate("/");
+      queryClient.invalidateQueries(['user'])
     },
     OnError: () => {
       alert("로그인 정보가 일치하지 않습니다");
+      console.log("로그인 실패");
     },
   });
 
   const submitHandler = (e) => {
     // 기본 제출 이벤트 방지
     e.preventDefault();
-
-    console.log("로그인 폼 제출");
 
     //폼 데이터
     const formData = new FormData(e.target);

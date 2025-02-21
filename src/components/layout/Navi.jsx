@@ -6,7 +6,7 @@ const Navi = () => {
       <Link to={"/test"} style={{ textDecoration: "none", color: "inherit" }}>
         <TestBtn />
       </Link>
-      <Link to={"/result"} style={{ textDecoration: "none", color: "inherit" }}>
+      <Link to={"/results"} style={{ textDecoration: "none", color: "inherit" }}>
         <ResultBtn />
       </Link>
     </div>

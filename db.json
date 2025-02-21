@@ -1,3 +1,39 @@
 {
-  "testResults": []
+  "testResults": [
+    {
+      "id": "6af6",
+      "userId": "asdfasdf",
+      "mbti": "ESTJ",
+      "visibility": false,
+      "createdTime": "2025-02-21T08:34:05.972Z"
+    },
+    {
+      "id": "2e36",
+      "userId": "asdfasdf",
+      "mbti": "ESTJ",
+      "visibility": false,
+      "createdTime": "2025-02-21T08:46:56.936Z"
+    },
+    {
+      "id": "681b",
+      "userId": "asdfasdf",
+      "mbti": "ESTJ",
+      "visibility": true,
+      "createdTime": "2025-02-21T08:54:57.427Z"
+    },
+    {
+      "id": "7b6f",
+      "userId": "asdfasdf",
+      "mbti": "ESTJ",
+      "visibility": false,
+      "createdTime": "2025-02-21T08:55:03.841Z"
+    },
+    {
+      "id": "d2b5",
+      "userId": "zxcvzxcv",
+      "mbti": "ESTJ",
+      "visibility": true,
+      "createdTime": "2025-02-21T11:29:46.722Z"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/testResults";
+const API_URL = "http://localhost:4000/testResults";
 
 export const getTestResults = async () => {
   const response = await axios.get(API_URL);
@@ -18,6 +18,6 @@ export const deleteTestResult = async (id) => {
 };
 
 export const updateTestResultVisibility = async (id, visibility) => {
-  const response = await axios.patch(`${API_URL}/${id}`, visibility);
+  const response = await axios.patch(`${API_URL}/${id}`, {visibility});
   return response.data;
 };

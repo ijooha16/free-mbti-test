@@ -2,8 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuthStore from "../../zustand/store/useAuthStore";
 
 const Header = () => {
-  const { user, logOut } = useAuthStore();
-  const isLogin = !!user;
+  const { token, logOut } = useAuthStore();
+  const isLogin = !!token;
   const navigate = useNavigate();
 
   const logoutHandler = () => {

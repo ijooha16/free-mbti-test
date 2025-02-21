@@ -18,7 +18,7 @@ function Router() {
           <Route path="/sign-up" element={<Signup />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/test" element={<TestPage />} />
-            <Route path="/result" element={<ResultPage />} />
+            <Route path="/results" element={<ResultPage />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
         </Route>
