@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { register } from "../api/auth";
-import AuthForm from "../components/AuthForm";
 import { queryClient } from "../api/client.js";
-import Btn from "../components/btn";
+import AuthForm from "../components/AuthForm";
+import SubmitBtn from "../components/SubmitBtn.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -12,9 +12,9 @@ const Signup = () => {
   const mutation = useMutation({
     mutationFn: register,
     onSuccess: (data) => {
-      queryClient.invalidateQueries(["users"]);
+      queryClient.invalidateQueries(["users"]); //바로 업데이트
       alert(data.message); // "회원가입 완료"
-      navigate("/");
+      navigate("/log-in");
     },
     onError: (error) => {
       alert(error.response?.data?.message || "회원가입 실패!");
@@ -58,7 +58,7 @@ const Signup = () => {
           name="confirm_password"
           placeHolder="비밀번호 확인"
         />
-        <Btn type="submit" text="가입하기" />
+        <SubmitBtn type="submit" text="가입하기" />
       </form>
     </div>
   );
