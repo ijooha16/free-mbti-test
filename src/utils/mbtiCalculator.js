@@ -1,3 +1,5 @@
+import { questions } from "../data/questions";
+
 export const mbtiDescriptions = {
     ENFJ: "이타주의자의 끝판왕! ENFJ는 사람을 돕는 데에 진심인 편이에요. 이들은 모든 사람에게 좋은 사람이 되고자 하며, 자기 자신보다 남을 더 우선시하는 슈퍼히어로 같은 존재예요. 친구들이 고민 상담을 할 때마다 차 한 잔 준비해놓고 기다리고 있을지도 몰라요. 그러나 가끔 너무 많은 걸 감당하려고 해서 자신을 잊어버리기도 해요. 그래서 가끔은 '나도 휴식이 필요해!'라고 외칠 필요가 있어요.",
   
@@ -35,16 +37,19 @@ export const mbtiDescriptions = {
     const scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
   
     // answers 배열을 순회하며 점수 누적
-    answers.forEach(({ type, answer }) => {
-      const [option1, option2] = type.split("/"); // E/I, S/N 등의 유형 분리
-      if (answer === option1) {
-        scores[option1]++;
-      } else if (answer === option2) {
-        scores[option2]++;
-      }
+    answers.forEach((answerObj, index) => {
+      // 질문의 type ("E/I" 등)을 "/" 기준으로 분리
+      const [option1, option2] = answerObj.type.split("/");
+      
+      // 선택한 옵션이 질문의 options 배열에서 몇 번째에 위치하는지 확인
+      const question = questions[index];
+      const selectedIndex = question.options.indexOf(answerObj.answer);
+  
+      if (selectedIndex === 0) scores[option1]++; // 선택한 옵션이 0번째에 위치하면 option1에 점수 추가
+      if (selectedIndex === 1) scores[option2]++; // 선택한 옵션이 1번째에 위치하면 option2에 점수 추가
     });
   
-    // 각 점수 비교를 통해 최종 MBTI 유형 계산
+    // 점수를 비교해 최종 MBTI 유형 계산
     const result = `${scores.E >= scores.I ? "E" : "I"}${
       scores.S >= scores.N ? "S" : "N"
     }${scores.T >= scores.F ? "T" : "F"}${scores.J >= scores.P ? "J" : "P"}`;

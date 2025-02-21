@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { questions } from "../data/questions";
-import SubmitBtn from "./SubmitBtn";
+import Btn from "./Btn";
+import { toast } from "react-toastify";
 
 const TestForm = ({ onSubmit }) => {
   const [answers, setAnswers] = useState(
@@ -15,7 +16,7 @@ const TestForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (answers.length < 20) return alert("모든 선택지를 선택해주세요");
+    if (answers.length < 20) return toast.warn("모든 선택지를 선택해주세요");
     onSubmit(answers);
   };
 
@@ -33,8 +34,8 @@ const TestForm = ({ onSubmit }) => {
                 <label
                   key={i}
                   className={`block p-3 border rounded-lg cursor-pointer transition-colors duration-300 ${
-                    answers[index]?.answer === option ? "bg-gray-100" : ""
-                  } hover:bg-gray-100`}
+                    answers[index]?.answer === option ? "bg-primary text-white hover:bg-sub01" : "hover:bg-gray-100"
+                  }`}
                 >
                   <input
                     type="radio"
@@ -51,7 +52,7 @@ const TestForm = ({ onSubmit }) => {
           </div>
         ))}
       </div>
-      <SubmitBtn type="submit" text="제출하기" />
+      <Btn type="submit" text="제출하기" />
     </form>
   );
 };

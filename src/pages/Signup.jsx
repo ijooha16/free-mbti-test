@@ -2,8 +2,9 @@ import { useMutation } from "@tanstack/react-query";
 import { register } from "../api/auth";
 import { queryClient } from "../api/client.js";
 import AuthForm from "../components/AuthForm";
-import SubmitBtn from "../components/SubmitBtn.jsx";
+import Btn from "../components/Btn.jsx";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -11,13 +12,13 @@ const Signup = () => {
   //회원가입 요청
   const mutation = useMutation({
     mutationFn: register,
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries(["users"]); //바로 업데이트
-      alert(data.message); // "회원가입 완료"
+      toast.success("회원가입 완료!"); // "회원가입 완료"
       navigate("/log-in");
     },
     onError: (error) => {
-      alert(error.response?.data?.message || "회원가입 실패!");
+      toast.error(error.response.data.message || "회원가입 실패!");
     },
   });
 
@@ -36,7 +37,7 @@ const Signup = () => {
 
     //비밀번호 재확인
     if (password !== confirmPassword) {
-      alert("비밀번호가 일치하지 않습니다.");
+      toast.error("비밀번호가 일치하지 않습니다.");
       return;
     }
 
@@ -58,7 +59,7 @@ const Signup = () => {
           name="confirm_password"
           placeHolder="비밀번호 확인"
         />
-        <SubmitBtn type="submit" text="가입하기" />
+        <Btn type="submit" text="가입하기" />
       </form>
     </div>
   );

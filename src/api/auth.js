@@ -60,7 +60,12 @@ export const getUserProfile = async () => {
 // }
 
 export const updateProfile = async (formData) => {
-  const response = await api.patch("/profile", formData);
+  const response = await api.patch("/profile", formData, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  });
+
   return response.data;
 };
 //header (thunder client는 content-type 없어야함)

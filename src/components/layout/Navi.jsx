@@ -1,15 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import useAuthStore from "../../zustand/store/useAuthStore";
 
 const Navi = () => {
-  return (
+  const { token } = useAuthStore();
+  const isLogin = !!token;
+  const location = useLocation();
+  const isTestPage = location.pathname === "/test";
+  const isResultPage = location.pathname === "/results";
+
+  return isLogin ? (
     <div className="fixed top-[260px] left-[60px] flex flex-col gap-[20px]">
-      <Link to={"/test"} style={{ textDecoration: "none", color: "inherit" }}>
+      <Link
+        to="/test"
+        className={`w-[80px] h-[40px] p-[0_12px] text-inherit no-underline ${
+          isTestPage
+            ? "text-subgray font-normal opacity-50"
+            : "text-black font-bold"
+        }`}
+      >
         <TestBtn />
       </Link>
-      <Link to={"/results"} style={{ textDecoration: "none", color: "inherit" }}>
+
+      <Link
+        to="/results"
+        className={`w-[80px] h-[40px] p-[0_12px] text-inherit no-underline ${
+          isResultPage
+            ? "text-subgray font-normal opacity-50"
+            : "text-black font-bold"
+        }`}
+      >
         <ResultBtn />
       </Link>
     </div>
+  ) : (
+    <></>
   );
 };
 
@@ -17,7 +41,10 @@ export default Navi;
 
 const TestBtn = () => {
   return (
-    <div className="h-[60px] w-[60px] flex justify-center items-center rounded-full bg-gray-200">
+    <div
+      className="h-[40px] w-[60px] font-bold text-[20px] rounded-full 
+    hover:scale-125 hover:text-primary transition-transform duration-300 ease-in-out"
+    >
       Test
     </div>
   );
@@ -25,7 +52,10 @@ const TestBtn = () => {
 
 const ResultBtn = () => {
   return (
-    <div className="h-[60px] w-[60px] flex justify-center items-center rounded-full bg-gray-200">
+    <div
+      className="h-[40px] w-[60px] font-bold text-[20px] rounded-full 
+    hover:scale-125 hover:text-primary transition-transform duration-300 ease-in-out"
+    >
       Result
     </div>
   );
