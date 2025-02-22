@@ -20,7 +20,7 @@ const Login = () => {
       queryClient.invalidateQueries(["user"]);
     },
     OnError: (error) => {
-      toast.error(error.response.data.message || "로그인 정보가 일치하지 않습니다");
+      toast.error(error.message || "로그인 정보가 일치하지 않습니다");
       console.log(error, "로그인 실패");
     },
   });
