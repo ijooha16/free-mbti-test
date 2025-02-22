@@ -9,7 +9,7 @@ const Navi = () => {
   const isResultPage = location.pathname === "/results";
 
   return isLogin ? (
-    <div className="fixed flex-col top-[140px] left-[40px] w-full gap-[10px] justify-center 
+    <div className="fixed flex-col top-[140px] left-[40px] w-[80px] gap-[10px] justify-center 
     md:top-[260px] md:left-[60px] md:translate-x-0 md:w-auto md:gap-[20px]">
       <Link
         to="/test"
