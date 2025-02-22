@@ -60,9 +60,11 @@ export const getUserProfile = async () => {
 // }
 
 export const updateProfile = async (formData) => {
+  const token = "accessToken";
+
   const response = await api.patch("/profile", formData, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      Authorization: `Bearer ${localStorage.getItem(token)}`,
     },
   });
 

@@ -46,7 +46,7 @@ const Home = () => {
         </>
       ) : (
         <>
-          <div>로그인 하셔야 이용하실 수 있어요!</div>
+          <div className="mt-[200px] mb-[120px]">로그인 하셔야 이용하실 수 있어요!</div>
           <Link to={"/log-in"}>
             <Btn type="button" text="로그인 하러 가기" />
           </Link>
