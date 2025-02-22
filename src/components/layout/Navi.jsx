@@ -9,10 +9,11 @@ const Navi = () => {
   const isResultPage = location.pathname === "/results";
 
   return isLogin ? (
-    <div className="fixed top-[260px] left-[60px] flex flex-col gap-[20px]">
+    <div className="fixed flex-col top-[140px] left-[40px] w-full gap-[10px] justify-center 
+    md:top-[260px] md:left-[60px] md:translate-x-0 md:w-auto md:gap-[20px]">
       <Link
         to="/test"
-        className={`w-[80px] h-[40px] p-[0_12px] text-inherit no-underline ${
+        className={`w-[80px] h-[20px] p-[0_12px] text-inherit no-underline ${
           isTestPage
             ? "text-subgray font-normal opacity-50"
             : "text-black font-bold"
@@ -23,7 +24,7 @@ const Navi = () => {
 
       <Link
         to="/results"
-        className={`w-[80px] h-[40px] p-[0_12px] text-inherit no-underline ${
+        className={`w-[80px] h-[20px] p-[0_12px] text-inherit no-underline ${
           isResultPage
             ? "text-subgray font-normal opacity-50"
             : "text-black font-bold"

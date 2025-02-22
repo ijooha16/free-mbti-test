@@ -12,7 +12,7 @@ const ResultPage = () => {
   });
 
   return (
-    <div className="w-[600px] flex flex-col justify-center items-center gap-[40px]">
+    <div className="w-[400px] md:w-[600px] flex flex-col justify-center items-center gap-[40px]">
       {results?.length > 0 ? (
         results
           .slice()

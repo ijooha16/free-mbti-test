@@ -12,24 +12,24 @@ const Header = () => {
   };
 
   return (
-    <div className="p-[0_60px] w-screen h-[200px] fixed top-[0] flex justify-between items-center bg-white">
+    <div className="p-[0_60px] w-screen h-[140px] md:h-[200px] fixed top-[0] flex flex-col md:flex-row md:justify-between items-center bg-white">
       <div className="w-[200px]"></div>
-      <Link to={"/"} className="no-underline h-[80px] text-[52px] font-bold mt-[20px]">
+      <Link to={"/"} className="no-underline h-[68px] md:h-[80px] text-[42px] md:text-[52px] font-bold mt-[20px]">
         MBTI TEST
       </Link>
 
       {isLogin ? (
-        <div className="flex">
+        <div className="flex gap-[20px] md:gap-[0px]">
           <Link
             to={"/profile"}
-            className="text-subgray no-underline h-[80px] w-[100px] flex justify-end items-end text-right"
+            className="text-subgray no-underline md:h-[80px] md:w-[80px] flex justify-end items-end text-center md:text-right"
           >
             마이페이지
           </Link>
           <Link
             to={"/"}
             onClick={logoutHandler}
-            className="text-subgray no-underline h-[80px] w-[100px] flex justify-end items-end text-right"
+            className="text-subgray no-underline md:h-[80px] md:w-[80px] flex justify-end items-end text-center md:text-right"
           >
             로그아웃
           </Link>
@@ -37,7 +37,7 @@ const Header = () => {
       ) : (
         <Link
           to={"/log-in"}
-          className="text-subgray no-underline h-[80px] w-[200px] flex justify-end items-end text-right"
+          className="text-subgray no-underline h-[80px] md:w-[160px] flex justify-end items-end text-center md:text-right"
         >
           로그인 / 회원가입
         </Link>

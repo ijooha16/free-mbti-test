@@ -22,8 +22,8 @@ const Layout = () => {
       />
       <Header />
       <Navi />
-      <div className="mt-[300px] min-h-[calc(100vh-300px)] w-screen flex flex-col gap-[80px] justify-between items-center">
-        <Outlet className="w-screen flex-grow flex flex-col gap-[80px] justify-center items-center" />
+      <div className="mt-[180px] md:mt-[300px] min-h-[calc(100vh-300px)] w-screen flex flex-col gap-[80px] justify-between items-center">
+        <Outlet className="flex-grow pt-[200px] md:pt-[250px] lg:pt-[300px] flex flex-col items-center gap-[80px] w-full" />
         <Footer />
       </div>
     </>
