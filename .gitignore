@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 z-memo.js
+db.json
