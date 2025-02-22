@@ -1,20 +1,17 @@
 const Footer = () => {
+  const githubIcon =
+    "https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/71-github-512.png";
+  const tistoryIcon =
+    "https://www.basicincomeparty.kr/wp-content/uploads/2020/11/tistory-logo-fill.png";
+
   return (
     <footer className="mt-[60px] w-full h-[400px] flex flex-col justify-center items-center bg-lightgray">
       <div className="flex gap-[12px] mb-[40px]">
         <a href="https://github.com/ijooha16">
-          <img
-            src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/71-github-512.png"
-            alt="github"
-            className="w-[60px] h-[60px]"
-          />
+          <img src={githubIcon} alt="github" className="w-[60px] h-[60px]" />
         </a>
         <a href="https://ijooha.tistory.com/">
-          <img
-            src="https://www.basicincomeparty.kr/wp-content/uploads/2020/11/tistory-logo-fill.png"
-            alt="tistory"
-            className="w-[60px] h-[60px]"
-          />
+          <img src={tistoryIcon} alt="tistory" className="w-[60px] h-[60px]" />
         </a>
       </div>
 
@@ -25,7 +22,6 @@ const Footer = () => {
         제공합니다.
       </p>
 
-      {/* 저작권 */}
       <p className="text-xs text-[#bcbcc4]">
         © 2025 MBTI TEST. All rights reserved.
       </p>

@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import useAuthStore from "../../zustand/store/useAuthStore";
+import TestBtn from "./TestBtn";
+import ResultBtn from "./ResultBtn";
 
 const Navi = () => {
   const { token } = useAuthStore();
@@ -9,8 +11,11 @@ const Navi = () => {
   const isResultPage = location.pathname === "/results";
 
   return isLogin ? (
-    <div className="fixed flex-col top-[140px] left-[40px] w-[80px] gap-[10px] justify-center 
-    md:top-[260px] md:left-[60px] md:translate-x-0 md:w-auto md:gap-[20px]">
+    // 로그인 한 사용자인 경우에만 네비게이션 바가 보이도록 설정
+    <div
+      className="fixed flex-col top-[140px] left-[40px] w-[80px] gap-[10px] justify-center 
+    md:top-[260px] md:left-[60px] md:translate-x-0 md:w-auto md:gap-[20px]"
+    >
       <Link
         to="/test"
         className={`w-[80px] h-[20px] p-[0_12px] text-inherit no-underline ${
@@ -39,25 +44,3 @@ const Navi = () => {
 };
 
 export default Navi;
-
-const TestBtn = () => {
-  return (
-    <div
-      className="h-[40px] w-[60px] font-bold text-[20px] rounded-full 
-    hover:scale-125 hover:text-primary transition-transform duration-300 ease-in-out"
-    >
-      Test
-    </div>
-  );
-};
-
-const ResultBtn = () => {
-  return (
-    <div
-      className="h-[40px] w-[60px] font-bold text-[20px] rounded-full 
-    hover:scale-125 hover:text-primary transition-transform duration-300 ease-in-out"
-    >
-      Result
-    </div>
-  );
-};

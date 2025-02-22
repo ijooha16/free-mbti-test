@@ -14,7 +14,10 @@ const Header = () => {
   return (
     <div className="p-[0_60px] w-screen h-[140px] md:h-[200px] fixed top-[0] flex flex-col md:flex-row md:justify-between items-center bg-white">
       <div className="w-[200px]"></div>
-      <Link to={"/"} className="no-underline h-[68px] md:h-[80px] text-[42px] md:text-[52px] font-bold mt-[20px]">
+      <Link
+        to={"/"}
+        className="no-underline h-[68px] md:h-[80px] text-[42px] md:text-[52px] font-bold mt-[20px]"
+      >
         MBTI TEST
       </Link>
 

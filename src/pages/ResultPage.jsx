@@ -1,18 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
 import useAuthStore from "../zustand/store/useAuthStore";
-import { getTestResults } from "../api/testResults";
 import ResultCard from "../components/ResultCard.jsx";
+import Title from "../components/layout/Title.jsx";
+import { useTestResultsQuery } from "../tanstack/queries/useQueries.js";
 
 const ResultPage = () => {
   const { userId } = useAuthStore();
-
-  const { data: results } = useQuery({
-    queryKey: ["results"],
-    queryFn: getTestResults,
-  });
+  const { data: results } = useTestResultsQuery();
 
   return (
     <div className="w-[400px] md:w-[600px] flex flex-col justify-center items-center gap-[40px]">
+      <Title title="결과" />
       {results?.length > 0 ? (
         results
           .slice()

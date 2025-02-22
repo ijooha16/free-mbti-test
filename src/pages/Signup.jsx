@@ -1,26 +1,11 @@
-import { useMutation } from "@tanstack/react-query";
-import { register } from "../api/auth";
-import { queryClient } from "../api/client.js";
 import AuthForm from "../components/AuthForm";
 import Btn from "../components/Btn.jsx";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Title from "../components/layout/Title.jsx";
+import { useRegisterMutation } from "../tanstack/mutations/useAuthMutations.js";
 
 const Signup = () => {
-  const navigate = useNavigate();
-
-  //회원가입 요청
-  const mutation = useMutation({
-    mutationFn: register,
-    onSuccess: () => {
-      queryClient.invalidateQueries(["users"]); //바로 업데이트
-      toast.success("회원가입 완료!"); // "회원가입 완료"
-      navigate("/log-in");
-    },
-    onError: (error) => {
-      toast.error(error.response.data.message || "회원가입 실패!");
-    },
-  });
+  const { mutate: register } = useRegisterMutation();
 
   const submitHandler = (e) => {
     // 기본 제출 이벤트 방지
@@ -42,11 +27,12 @@ const Signup = () => {
     }
 
     //데이터 변경
-    mutation.mutate({ id, nickname, password });
+    register({ id, nickname, password });
   };
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center gap-[20px]">
+      <Title title="회원가입" />
       <form
         onSubmit={(e) => submitHandler(e)}
         className="flex flex-col justify-center items-center gap-[20px]"
@@ -61,6 +47,10 @@ const Signup = () => {
         />
         <Btn type="submit" text="가입하기" />
       </form>
+      <div className="text-subgray text-center mt-[30px] leading-relaxed">
+        이미 계정이 있으신가요? <br />
+        <a href="/log-in">로그인 하러 가기</a>
+      </div>
     </div>
   );
 };

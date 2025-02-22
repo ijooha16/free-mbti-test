@@ -1,44 +1,23 @@
 import { mbtiDescriptions } from "../utils/mbtiCalculator";
-import { useMutation } from "@tanstack/react-query";
 import {
-  deleteTestResult,
-  updateTestResultVisibility,
-} from "../api/testResults";
-import { queryClient } from "../api/client.js";
-import { toast } from "react-toastify";
+  useEditTestResultVisibilityMutation,
+  useDeleteTestResultMutation,
+} from "../tanstack/mutations/useResultMutations.js";
 
 const ResultCard = ({ data, userId }) => {
+  const editTestResultVisibilityMutation =
+    useEditTestResultVisibilityMutation();
+  const editResultVisibility = editTestResultVisibilityMutation.mutate;
+  const deleteTestResultMutation = useDeleteTestResultMutation();
+  const removeResult = deleteTestResultMutation.mutate;
   const { visibility, mbti, userId: userid, id, createdTime } = data;
 
-  const removeMutation = useMutation({
-    mutationFn: deleteTestResult,
-    onSuccess: () => {
-      toast.success('내 결과 카드가 삭제되었어요!')
-      queryClient.invalidateQueries(["results"]);
-    },
-    onError: (error) => {
-      console.log("데이터 삭제 실패", error);
-    },
-  });
-
   const removeHandler = (id) => {
-    removeMutation.mutate(id);
+    removeResult(id);
   };
 
-  const editMutation = useMutation({
-    mutationFn: ({ id, visibility }) =>
-      updateTestResultVisibility(id, visibility),
-    onSuccess: () => {
-      toast.success('공개 설정 변경이 완료되었어요!')
-      queryClient.invalidateQueries(["results"]);
-    },
-    onError: (error) => {
-      console.log("공개 모드 변경 실패", error);
-    },
-  });
-
   const editHandler = (id, visibility) => {
-    editMutation.mutate({ id, visibility });
+    editResultVisibility({ id, visibility });
   };
 
   return (
