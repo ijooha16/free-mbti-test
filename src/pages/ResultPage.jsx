@@ -1,12 +1,33 @@
-import React from 'react'
+import { useQuery } from "@tanstack/react-query";
+import useAuthStore from "../zustand/store/useAuthStore";
+import { getTestResults } from "../api/testResults";
+import ResultCard from "../components/ResultCard.jsx";
 
 const ResultPage = () => {
-//본인 소유 결과 visability 변경, 삭제 버튼
-//getTestResults 호출, 결과 데이터 가져오기 (visability true인 애들만)
+  const { userId } = useAuthStore();
+
+  const { data: results } = useQuery({
+    queryKey: ["results"],
+    queryFn: getTestResults,
+  });
 
   return (
-    <div>ResultPage</div>
-  )
-}
+    <div className="w-[400px] md:w-[600px] flex flex-col justify-center items-center gap-[40px]">
+      {results?.length > 0 ? (
+        results
+          .slice()
+          .reverse()
+          .map((data) => {
+            //비공개인데 내 결과가 아닐 때
+            if (!data.visibility && data.userId !== userId) return null;
 
-export default ResultPage
+            return <ResultCard key={data.id} data={data} userId={userId} />;
+          })
+      ) : (
+        <p>결과가 없습니다.</p>
+      )}
+    </div>
+  );
+};
+
+export default ResultPage;

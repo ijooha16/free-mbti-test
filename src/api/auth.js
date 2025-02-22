@@ -1,9 +1,7 @@
-import axios from "axios";
-
-const API_URL = "https://www.nbcamp-react-auth.link";
+import api from "./api";
 
 export const register = async (userData) => {
-  const response = await axios.post(`${API_URL}/register`, userData);
+  const response = await api.post("/register", userData);
   return response.data;
 };
 //body
@@ -19,7 +17,7 @@ export const register = async (userData) => {
 //   }
 
 export const login = async (userData) => {
-  const response = await axios.post(`${API_URL}/login`, userData);
+  const response = await api.post("/login", userData);
   return response.data;
 };
 //body
@@ -38,8 +36,9 @@ export const login = async (userData) => {
 //     "nickname": "유저 닉네임"
 // }
 
-export const getUserProfile = async (token) => {
-  const response = await axios.get(`${API_URL}/user`, token);
+export const getUserProfile = async () => {
+  const response = await api.get("/user");
+
   return response.data;
 };
 // header
@@ -61,7 +60,12 @@ export const getUserProfile = async (token) => {
 // }
 
 export const updateProfile = async (formData) => {
-  const response = await axios.patch(`${API_URL}/profile`, formData);
+  const response = await api.patch("/profile", formData, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  });
+
   return response.data;
 };
 //header (thunder client는 content-type 없어야함)
