@@ -34,7 +34,9 @@ const TestForm = ({ onSubmit }) => {
                 <label
                   key={i}
                   className={`block p-3 border rounded-lg cursor-pointer transition-colors duration-300 ${
-                    answers[index]?.answer === option ? "bg-primary text-white hover:bg-sub01" : "hover:bg-gray-100"
+                    answers[index]?.answer === option
+                      ? "bg-primary text-white hover:bg-sub01"
+                      : "hover:bg-lightgray"
                   }`}
                 >
                   <input
@@ -43,7 +45,7 @@ const TestForm = ({ onSubmit }) => {
                     value={option}
                     checked={answers[index]?.answer === option}
                     onChange={() => handleChange(index, option)}
-                    className="mr-2 text-primary-color"
+                    className="mr-2"
                   />
                   {option}
                 </label>

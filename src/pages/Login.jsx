@@ -7,8 +7,8 @@ import { useLoginMuation } from "../tanstack/mutations/useAuthMutations";
 const Login = () => {
   const { mutate: login } = useLoginMuation();
 
+  //로그인
   const submitHandler = (e) => {
-    // 기본 제출 이벤트 방지
     e.preventDefault();
 
     //폼 데이터
@@ -16,7 +16,7 @@ const Login = () => {
     const id = formData.get("id");
     const password = formData.get("password");
 
-    //mutate
+    //로그인 요청
     login({ id, password });
   };
 

@@ -1,19 +1,15 @@
 import { Link } from "react-router-dom";
 import Btn from "../components/Btn.jsx";
 import useAuthStore from "../zustand/store/useAuthStore.js";
-import { useQuery } from "@tanstack/react-query";
-import { getTestResults } from "../api/testResults.js";
 import { mbtiDescriptions } from "../utils/mbtiCalculator";
+import { useTestResultsQuery } from "../tanstack/queries/useQueries.js";
 
 const Home = () => {
   const { token, userId } = useAuthStore();
   const isLogin = !!token;
+  const { data: result } = useTestResultsQuery();
 
-  const { data: result } = useQuery({
-    queryKey: ["myResult"],
-    queryFn: getTestResults,
-  });
-
+  //내 최근 결과
   const myRecentResult =
     result
       ?.slice()
@@ -28,7 +24,9 @@ const Home = () => {
             <div className="w-[400px] flex flex-col items-center gap-[30px] text-center">
               <div className="text-subgray">
                 {userId}님의 최근 검사 결과예요!
-              <div className="text-subgray mt-[6px]">아래 버튼을 눌러 다시 검사해보실 수 있어요!</div>
+                <div className="text-subgray mt-[6px]">
+                  아래 버튼을 눌러 다시 검사해보실 수 있어요!
+                </div>
               </div>
               {/* 결과 카드 */}
               <div className="font-bold text-[62px] text-primary">

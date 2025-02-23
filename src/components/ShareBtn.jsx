@@ -1,7 +1,7 @@
 import linkIcon from "../assets/line-md_link.png";
 import { toast } from "react-toastify";
 
-const SareBtn = () => {
+const ShareBtn = () => {
   const shareHandler = async () => {
     try {
       await navigator.share(shareData);
@@ -15,6 +15,7 @@ const SareBtn = () => {
   const shareData = {
     title: "MBTI TEST",
     text: "내 성격 유형을 알아보자!",
+    //수정 필요 
     url: "https://free-mbti-test-aw11n78r9-juha-yoons-projects.vercel.app",
   };
 
@@ -29,4 +30,4 @@ const SareBtn = () => {
   );
 };
 
-export default SareBtn;
+export default ShareBtn;

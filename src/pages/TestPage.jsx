@@ -6,13 +6,14 @@ import useAuthStore from "../zustand/store/useAuthStore";
 import { useCreateTestResultMutation } from "../tanstack/mutations/useResultMutations";
 import Btn from "../components/Btn";
 import Title from "../components/layout/Title";
-import SareBtn from "../components/ShareBtn";
+import ShareBtn from "../components/ShareBtn";
 
 const TestPage = () => {
   const [result, setResult] = useState(null);
   const { userId } = useAuthStore();
   const { mutate: createTestResult } = useCreateTestResultMutation();
 
+  //테스트 제출
   const handleTestSubmit = (answers) => {
     if (answers.some((answer) => answer.type.trim() === "")) {
       toast.error("모든 문항에 답해주세요.");
@@ -21,6 +22,8 @@ const TestPage = () => {
 
     const mbtiResult = calculateMBTI(answers);
     setResult(mbtiResult);
+
+    //결과 저장 요청
     createTestResult({
       userId,
       mbti: mbtiResult,
@@ -29,6 +32,7 @@ const TestPage = () => {
     });
   };
 
+  //테스트 다시하기
   const testAgainHandler = () => {
     setResult(null);
   };
@@ -54,7 +58,7 @@ const TestPage = () => {
               onClick={testAgainHandler}
             />
             <div className="flex gap-6">
-              <SareBtn />
+              <ShareBtn />
             </div>
           </>
         )}

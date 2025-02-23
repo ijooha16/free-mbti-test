@@ -7,8 +7,8 @@ import { useRegisterMutation } from "../tanstack/mutations/useAuthMutations.js";
 const Signup = () => {
   const { mutate: register } = useRegisterMutation();
 
+  //회원가입 제출
   const submitHandler = (e) => {
-    // 기본 제출 이벤트 방지
     e.preventDefault();
 
     console.log("회원가입 제출");
@@ -26,7 +26,7 @@ const Signup = () => {
       return;
     }
 
-    //데이터 변경
+    //회원가입 요청
     register({ id, nickname, password });
   };
 

@@ -15,10 +15,14 @@ const ResultPage = () => {
           .slice()
           .reverse()
           .map((data) => {
-            //비공개인데 내 결과가 아닐 때
-            if (!data.visibility && data.userId !== userId) return null;
+            const hiddenResults = !data.visibility && data.userId !== userId;
 
-            return <ResultCard key={data.id} data={data} userId={userId} />;
+            //비공개인데 내 결과가 아닐 때
+            hiddenResults && null;
+
+            return (
+              <ResultCard key={data.id} data={data} loggedInUserId={userId} />
+            );
           })
       ) : (
         <p>결과가 없습니다.</p>

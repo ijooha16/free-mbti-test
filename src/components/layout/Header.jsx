@@ -21,6 +21,7 @@ const Header = () => {
         MBTI TEST
       </Link>
 
+      {/* 로그인 여부에 따라 바뀌는 탭 */}
       {isLogin ? (
         <div className="flex gap-[20px] md:gap-[0px]">
           <Link

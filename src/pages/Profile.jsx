@@ -12,11 +12,9 @@ const Profile = () => {
   const [editProfile, setEditProfile] = useState(false);
   const { data: user } = useUserProfileQuery();
 
+  //프로필 수정 제출
   const submitHandler = (e) => {
-    // 기본 제출 이벤트 방지
     e.preventDefault();
-
-    console.log("프로필 수정 폼 제출");
 
     //폼 데이터
     const formData = new FormData(e.target);
@@ -28,7 +26,7 @@ const Profile = () => {
     if (avatarInput) {
       data.append("avatar", avatarInput);
     }
-    //API 요청
+    //프로필 수정 요청
     updateProfile(data, { onSuccess: setEditProfile(false) });
   };
 
@@ -36,6 +34,7 @@ const Profile = () => {
     setEditProfile(true);
   };
 
+  //미리보기 이미지 변경
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -52,13 +51,15 @@ const Profile = () => {
       <Title title="프로필" />
       {!editProfile ? (
         <div className="flex flex-col items-center">
-          <div
-            className="mb-[40px] w-[200px] h-[200px] rounded-full bg-no-repeat bg-center bg-lightgray"
-            style={{
-              backgroundImage: `url(${user?.avatar || profileIcon})`,
-              backgroundSize: user?.avatar ? "cover" : "80%",
-            }}
-          ></div>
+          <div className="mb-[40px] w-[200px] h-[200px] rounded-full bg-lightgray flex items-center justify-center overflow-hidden">
+            <img
+              src={user?.avatar || profileIcon}
+              alt="프로필 이미지"
+              className={`w-full h-full object-cover ${
+                user?.avatar ? "object-cover" : "p-[20%]"
+              }`}
+            />
+          </div>
           <div className="h-[50px] p-[0_20px font-bold text-[24px]">
             {user?.nickname} 님
           </div>
@@ -72,13 +73,16 @@ const Profile = () => {
           <div className="mb-[40px] flex flex-col items-center">
             <label
               htmlFor="avatarUpload"
-              className="cursor-pointer w-[200px] h-[200px] rounded-full bg-no-repeat bg-center bg-lightgray flex items-center justify-center"
-              // tailwindcss에서 background-image를 사용할 수 없어서 inline style로 처리
-              style={{
-                backgroundImage: `url(${user?.avatar || profileIcon})`,
-                backgroundSize: user?.avatar ? "cover" : "80%",
-              }}
-            ></label>
+              className="cursor-pointer w-[200px] h-[200px] rounded-full bg-lightgray flex items-center justify-center overflow-hidden"
+            >
+              <img
+                src={user?.avatar || profileIcon}
+                alt="프로필 이미지"
+                className={`w-full h-full ${
+                  user?.avatar ? "object-cover" : "p-[20%]"
+                }`}
+              />
+            </label>
             <input
               id="avatarUpload"
               type="file"
