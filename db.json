@@ -1,25 +1,3 @@
 {
-  "testResults": [
-    {
-      "id": "dd52",
-      "userId": "asdfasdf",
-      "mbti": "ESTJ",
-      "visibility": true,
-      "createdTime": "2025-02-22T13:43:59.618Z"
-    },
-    {
-      "id": "b15b",
-      "userId": "ijooha",
-      "mbti": "ENFJ",
-      "visibility": true,
-      "createdTime": "2025-02-23T03:22:00.566Z"
-    },
-    {
-      "id": "6a14",
-      "userId": "asdfasdf",
-      "mbti": "ISTP",
-      "visibility": false,
-      "createdTime": "2025-02-24T00:55:19.114Z"
-    }
-  ]
+  "testResults": []
 }

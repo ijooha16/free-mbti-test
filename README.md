@@ -1,6 +1,6 @@
 <!-- ####### 헤더 -->
 
-# ⚡️ Pokemon : Pokemon Dex
+# 🗒️ MBTI TEST : 무료 MBTI 검사 페이지
 
 <!-- 사이트 링크 수정 필요 -->
 
@@ -8,7 +8,7 @@
 
 무료 MBTI 검사 사이트입니다.
 
-테스트 페이지에서 자신의 성격 유형을 파악하고,
+로그인 하여 테스트 페이지에서 자신의 성격 유형을 파악하고,
 결과 페이지에서 다른 사람의 유형도 살펴볼 수 있습니다.
 
 react, tanstack, zustand, axios를 사용했습니다.
@@ -82,7 +82,6 @@ react, tanstack, zustand, axios, json-server, tailwind, react-toastify를 사용
 
 ### ✔️ **Tanstack : 서버와 로컬 상태 동기화**
 
-
 > - **useMutation**을 사용하여 회원 관련 정보와 검사 결과가 즉시 반영되도록 했습니다.
 >
 > - **useQuery**로 항상 최신 상태를 유지하도록 했습니다.
@@ -110,8 +109,8 @@ react, tanstack, zustand, axios, json-server, tailwind, react-toastify를 사용
 > - **사용자 경험**이 고려된 직관적인 UI와 interaction을 구현하고자 했습니다.
 
 <div align="center">
-  <img src="image-2.png" alt="설명">
-  <img src="image-3.png" alt="설명" width="300px">
+  <img src="./src/assets/image-2.png" alt="설명">
+  <img src="./src/assets/image-3.png" alt="설명" width="400px">
 </div>
 <br/>
 

@@ -5,11 +5,15 @@ const userId = "userId";
 const avatar = "avatar";
 const nickname = "nickname";
 
-const useAuthStore = create((set) => ({
+const initialState = {
   token: localStorage.getItem(token) || null,
   userId: localStorage.getItem(userId) || null,
   avatar: localStorage.getItem(avatar) || null,
   nickname: localStorage.getItem(nickname) || null,
+};
+
+const useAuthStore = create((set) => ({
+  ...initialState,
 
   setUser: (userData) => {
     localStorage.setItem("token", userData.accessToken);
@@ -30,7 +34,7 @@ const useAuthStore = create((set) => ({
     localStorage.removeItem(userId);
     localStorage.removeItem(avatar);
     localStorage.removeItem(nickname);
-    set({ token: null, userId: null, avatar: null, nickname: null });
+    set(initialState);
   },
 }));
 
