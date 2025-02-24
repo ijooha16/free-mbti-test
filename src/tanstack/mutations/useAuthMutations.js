@@ -19,9 +19,9 @@ export const useLoginMuation = () => {
       toast.success("로그인 성공!");
       console.log("로그인 성공", userData);
     },
-    OnError: (error) => {
-      toast.error(error.message || "로그인 정보가 일치하지 않습니다");
-      console.log("로그인 실패", error);
+    onError: (error) => {
+      toast.error(error.response.data.message || "로그인 정보가 일치하지 않습니다");
+      console.log("로그인 실패", error.response.data.message);
     },
   });
 };

@@ -19,16 +19,16 @@ api.interceptors.request.use(
 );
 
 //인증 오류 시 자동 로그아웃
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response && error.response.status === 401) {
-      console.error("인증 오류: 다시 로그인하세요.");
-      localStorage.removeItem("accessToken");
-      window.location.href = "/log-in"; // 로그인 페이지로 이동
-    }
-    return Promise.reject(error.response);
-  }
-);
+// api.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     if (error.response && error.response.status === 401) {
+//       console.error("인증 오류: 다시 로그인하세요.");
+//       localStorage.removeItem("accessToken");
+//       window.location.href = "/log-in"; // 로그인 페이지로 이동
+//     }
+//     return Promise.reject(error.response);
+//   }
+// );
 
 export default api;
