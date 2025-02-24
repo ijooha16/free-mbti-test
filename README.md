@@ -15,8 +15,10 @@ react, tanstack, zustand, axios를 사용했습니다.
 
 <br/>
 
-![alt text](image.png)
-![alt text](image-1.png)
+<div align="center">
+  <img src="./src/assets/image.png" alt="설명">
+  <img src="./src/assets/image-1.png" alt="설명">
+</div>
 
 <br/>
 <br/>
@@ -48,6 +50,7 @@ react, tanstack, zustand, axios를 사용했습니다.
 <a href="#"><img align="center" alt="Axios" height="30" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg"></a>
 <a href="#"><img align="center" alt="Tailwind" height="30" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"></a>
 
+<br/>
 <br/>
 
 react, tanstack, zustand, axios, json-server, tailwind, react-toastify를 사용해 만든 프로젝트입니다.

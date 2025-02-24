@@ -19,21 +19,20 @@ const Navi = () => {
       <Link
         to="/test"
         className={`w-[80px] h-[20px] p-[0_12px] text-inherit no-underline ${
-          isTestPage
-            ? "text-subgray font-normal opacity-50"
-            : "text-black font-bold"
-        }`}
-      >
-        <TestBtn />
-      </Link>
-
-      <Link
-        to="/results"
-        className={`w-[80px] h-[20px] p-[0_12px] text-inherit no-underline ${
           isResultPage
             ? "text-subgray font-normal opacity-50"
             : "text-black font-bold"
-        }`}
+        }${isTestPage ? "text-primary scale-120" : "text-black"}`}
+      >
+        <TestBtn />
+      </Link>
+      <Link
+        to="/results"
+        className={`w-[80px] h-[20px] p-[0_12px] text-inherit no-underline ${
+          isTestPage
+            ? "text-subgray font-normal opacity-50"
+            : "text-black font-bold"
+        }${isResultPage ? "text-primary scale-120" : "text-black"}`}
       >
         <ResultBtn />
       </Link>
