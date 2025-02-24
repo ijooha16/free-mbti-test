@@ -13,6 +13,13 @@
       "mbti": "ENFJ",
       "visibility": true,
       "createdTime": "2025-02-23T03:22:00.566Z"
+    },
+    {
+      "id": "6a14",
+      "userId": "asdfasdf",
+      "mbti": "ISTP",
+      "visibility": false,
+      "createdTime": "2025-02-24T00:55:19.114Z"
     }
   ]
 }
