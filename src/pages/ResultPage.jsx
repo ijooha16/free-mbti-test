@@ -18,7 +18,7 @@ const ResultPage = () => {
             const hiddenResults = !data.visibility && data.userId !== userId;
 
             //비공개인데 내 결과가 아닐 때
-            hiddenResults && null;
+            if (hiddenResults) return null;
 
             return (
               <ResultCard key={data.id} data={data} loggedInUserId={userId} />

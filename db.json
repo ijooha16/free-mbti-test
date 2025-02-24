@@ -20,6 +20,13 @@
       "mbti": "ISFJ",
       "visibility": false,
       "createdTime": "2025-02-24T06:12:18.357Z"
+    },
+    {
+      "id": "7000",
+      "userId": "asdfasdf",
+      "mbti": "INFP",
+      "visibility": true,
+      "createdTime": "2025-02-24T13:16:37.839Z"
     }
   ]
 }
