@@ -15,8 +15,7 @@ const ShareBtn = () => {
   const shareData = {
     title: "MBTI TEST",
     text: "내 성격 유형을 알아보자!",
-    //수정 필요 
-    url: "https://free-mbti-test-aw11n78r9-juha-yoons-projects.vercel.app",
+    url: "https://free-mbti-test-l83be1ixo-juha-yoons-projects.vercel.app",
   };
 
   return (
