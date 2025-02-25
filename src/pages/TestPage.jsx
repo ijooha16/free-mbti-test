@@ -10,7 +10,7 @@ import ShareBtn from "../components/ShareBtn";
 
 const TestPage = () => {
   const [result, setResult] = useState(null);
-  const { userId } = useAuthStore();
+  const { userId, nickname } = useAuthStore();
   const { mutate: createTestResult } = useCreateTestResultMutation();
 
   //테스트 제출
@@ -19,6 +19,7 @@ const TestPage = () => {
       toast.error("모든 문항에 답해주세요.");
       return;
     }
+    console.log(nickname)
 
     const mbtiResult = calculateMBTI(answers);
     setResult(mbtiResult);
@@ -26,6 +27,7 @@ const TestPage = () => {
     //결과 저장 요청
     createTestResult({
       userId,
+      nickname,
       mbti: mbtiResult,
       visibility: true,
       createdTime: new Date(),
