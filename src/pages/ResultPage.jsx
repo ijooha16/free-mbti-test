@@ -10,7 +10,7 @@ const ResultPage = () => {
   return (
     <div className="w-[400px] md:w-[600px] flex flex-col justify-center items-center gap-[40px]">
       <Title title="결과" />
-      {results?.length > 0 ? (
+      {Array.isArray(results) && results.length > 0 ? (
         results
           .slice()
           .reverse()

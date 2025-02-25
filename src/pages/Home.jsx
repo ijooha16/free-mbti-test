@@ -7,14 +7,16 @@ import { useTestResultsQuery } from "../tanstack/queries/useQueries.js";
 const Home = () => {
   const { token, userId } = useAuthStore();
   const isLogin = !!token;
-  const { data: result } = useTestResultsQuery();
+  const { data: results } = useTestResultsQuery();
 
   //내 최근 결과
   const myRecentResult =
-    result
-      ?.slice()
-      .reverse()
-      .find((result) => result.userId === userId) || null;
+    Array.isArray(results) && results.length > 0
+      ? results
+          .slice()
+          .reverse()
+          .find((result) => result.userId === userId)
+      : null;
 
   return (
     <div className="w-screen flex flex-col gap-[80px] justify-center items-center">
