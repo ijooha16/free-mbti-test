@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const API_URL = "https://www.nbcamp-react-auth.link";
 
@@ -6,7 +7,7 @@ const api = axios.create({
   baseURL: API_URL,
 });
 
-//모든 요청에 토큰 자동 추가
+//모든 요청에 토큰 자동 추가, 인증 오류시 자동 로그아웃 후 로그인 페이지
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token"); // 저장된 토큰 가져오기
@@ -15,19 +16,18 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
-);
-
-// 인증 오류 시 자동 로그아웃
-api.interceptors.response.use(
-  (response) => response,
   (error) => {
-    if (error.response && error.response.status === 401) {
-      console.error("인증 오류: 다시 로그인하세요.");
-      localStorage.removeItem("accessToken");
-      window.location.href = "/log-in"; // 로그인 페이지로 이동
+    // 서버에서 응답이 있는 경우 (error.response 있을 떄)
+    if (error.response) {
+      return Promise.reject(error);
     }
-    return Promise.reject(error.response);
+    //네트워크 오류
+    setTimeout(() => {
+      localStorage.removeItem("accessToken");
+      window.location = "/log-in";
+    }, 1000);
+    toast.error("토큰 만료! 다시 로그인하세요.");
+    return Promise.reject(error);
   }
 );
 
