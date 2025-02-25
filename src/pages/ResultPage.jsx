@@ -8,7 +8,7 @@ const ResultPage = () => {
   const { data: results } = useTestResultsQuery();
 
   return (
-    <div className="w-[400px] md:w-[600px] flex flex-col justify-center items-center gap-[40px]">
+    <div className="w-[380px] md:w-[600px] flex flex-col justify-center items-center gap-[40px]">
       <Title title="결과" />
       {Array.isArray(results) && results.length > 0 ? (
         results

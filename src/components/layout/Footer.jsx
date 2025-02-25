@@ -15,7 +15,7 @@ const Footer = () => {
         </a>
       </div>
 
-      <p className="text-subgray text-center mb-[40px]">
+      <p className="text-subgray text-center mb-[40px] w-[340px] md:w-[600px]">
         MBTI TEST는 여러분의 성격 유형을 빠르고 정확하게 분석해드립니다.
         <br />
         다양한 질문을 통해 여러분의 성향을 파악하고, 이에 맞는 MBTI 결과를
