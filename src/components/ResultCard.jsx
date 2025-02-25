@@ -8,7 +8,7 @@ const ResultCard = ({ data, loggedInUserId }) => {
   const { mutate: editResultVisibility } =
     useEditTestResultVisibilityMutation();
   const { mutate: removeResult } = useDeleteTestResultMutation();
-  const { visibility, mbti, userId, id, createdTime } = data;
+  const { visibility, mbti, userId, nickname, id, createdTime } = data;
   const isOwner = userId === loggedInUserId;
   const textColor = !visibility
     ? "text-[#c0a7da]"
@@ -34,7 +34,7 @@ const ResultCard = ({ data, loggedInUserId }) => {
       <div className="mb-5 flex justify-between items-end">
         <div>
           <div className={`text-2xl font-bold ${textColor}`}>{mbti}</div>
-          <div className={`font-bold ${textColor}`}>{userId} 님</div>
+          <div className={`font-bold ${textColor}`}>{nickname} 님</div>
         </div>
         <div className="flex flex-col items-end">
           <div className={`p-2 ${textColor}`}>
