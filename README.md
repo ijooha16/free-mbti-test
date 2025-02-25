@@ -2,7 +2,7 @@
 
 # 🗒️ MBTI TEST : 무료 MBTI 검사 페이지
 
-free-mbti-test-juha-yoons-projects.vercel.app
+[free-mbti-test-juha-yoons-projects.vercel.app](https://free-mbti-test.vercel.app/)
 
 <br/>
 
